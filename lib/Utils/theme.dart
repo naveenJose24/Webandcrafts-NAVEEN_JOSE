@@ -9,3 +9,4 @@ const Color kFontDisabledColor = Color(0xffE5E5E5);
 const kTileIcon2Color = Colors.red;
 const kTileIcon3Color = Colors.green;
 const kTileIcon4Color =Colors.brown;
+const Color kLineColor = Color(0xffC3D3ED);

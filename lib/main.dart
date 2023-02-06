@@ -3,7 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'Modules/Home/model/profile_model.dart';
 import 'Routes/pages.dart';
+import 'Utils/Constants/text_constants.dart';
 
 
 void main() async {
@@ -11,9 +13,9 @@ void main() async {
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
-  // await Hive.initFlutter();
-  // Hive.registerAdapter(WooProductDetailsAdapter());
-  // await Hive.openBox<WooProductDetails>(FAVOURITE_BOX);
+  await Hive.initFlutter();
+  Hive.registerAdapter(ProfileModelAdapter());
+  await Hive.openBox<ProfileModel>(PROFILE_BOX);
 
   runApp(
     GetMaterialApp(

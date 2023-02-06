@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../theme.dart';
 
@@ -76,5 +77,21 @@ cachedNetworkImage(
         ),
       ),
     ),
+  );
+}
+/// no item
+noItem() {
+  return Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children:  [
+      const SizedBox(
+        height: 60,
+        width: 60,
+        child: Icon(Icons.person)
+      ),
+      Text("No profile found !",style: GoogleFonts.montserrat(
+  fontWeight: FontWeight.w700),)
+    ],
   );
 }

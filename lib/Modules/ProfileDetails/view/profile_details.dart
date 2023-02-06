@@ -13,72 +13,70 @@ class ProfileDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: kBoxColor,
-        body: ListView(
-          shrinkWrap: true,
-          children: [
-            appBar(),
-            profileImageWidget(profileData),
-            const SizedBox(
-              height: 30,
+    return Scaffold(
+      backgroundColor: kBoxColor,
+      body: ListView(
+        shrinkWrap: true,
+        children: [
+          appBar(),
+          profileImageWidget(profileData),
+          const SizedBox(
+            height: 30,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+            child: Text(
+              profileData.name.toString(),
+              textAlign: TextAlign.center,
+              style: GoogleFonts.montserrat(
+                  fontSize: 30, fontWeight: FontWeight.w700, color: kFontColor),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30.0),
-              child: Text(
-                profileData.name.toString(),
-                textAlign: TextAlign.center,
-                style: GoogleFonts.montserrat(
-                    fontSize: 30, fontWeight: FontWeight.w700, color: kFontColor),
-              ),
+          ),
+          Center(
+            child: Text(
+              profileData.email.toString(),
+              style: GoogleFonts.abel(
+                  fontSize: 20, fontWeight: FontWeight.w400, color: kFontColor),
             ),
-            Center(
-              child: Text(
-                profileData.email.toString(),
-                style: GoogleFonts.abel(
-                    fontSize: 20, fontWeight: FontWeight.w400, color: kFontColor),
-              ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            tileWidget(
-                iconData: Icons.person,
-                iconColor: kBlueColor,
-                title: profileData.username != null
-                    ? profileData.username.toString()
-                    : '',
-                subtitle: USER_NAME_SUBTITLE),
-            tileWidget(
-                iconData: Icons.web,
-                iconColor: kTileIcon2Color,
-                title: profileData.website != null
-                    ? profileData.website.toString()
-                    : '',
-                subtitle: WEBSITE_SUBTITLE),
-            tileWidget(
-                iconData: Icons.phone,
-                iconColor: kTileIcon3Color,
-                title: profileData.phone != null
-                    ? profileData.phone.toString()
-                    : '',
-                subtitle: PHONE_NUMBER_SUBTITLE),
-            tileWidget(
-                iconData: Icons.home,
-                iconColor: kTileIcon4Color,
-                title:
-                    '${profileData.address!.street} ${profileData.address!.suite} ${profileData.address!.city} ${profileData.address!.zipcode}',
-                subtitle: ADDRESS_SUBTITLE),
-            tileWidget(
-                iconData: Icons.work_outline,
-                iconColor: kCircleBackgroundColor,
-                title: profileData.company != null
-                    ? '${profileData.company!.name} ${profileData.company!.catchPhrase} ${profileData.company!.bs}'
-                    : '',
-                subtitle: COMPANY_SUBTITLE)
-          ],
-        ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          tileWidget(
+              iconData: Icons.person,
+              iconColor: kBlueColor,
+              title: profileData.username != null
+                  ? profileData.username.toString()
+                  : '',
+              subtitle: USER_NAME_SUBTITLE),
+          tileWidget(
+              iconData: Icons.web,
+              iconColor: kTileIcon2Color,
+              title: profileData.website != null
+                  ? profileData.website.toString()
+                  : '',
+              subtitle: WEBSITE_SUBTITLE),
+          tileWidget(
+              iconData: Icons.phone,
+              iconColor: kTileIcon3Color,
+              title: profileData.phone != null
+                  ? profileData.phone.toString()
+                  : '',
+              subtitle: PHONE_NUMBER_SUBTITLE),
+          tileWidget(
+              iconData: Icons.home,
+              iconColor: kTileIcon4Color,
+              title:
+                  '${profileData.address!.street} ${profileData.address!.suite} ${profileData.address!.city} ${profileData.address!.zipcode}',
+              subtitle: ADDRESS_SUBTITLE),
+          tileWidget(
+              iconData: Icons.work_outline,
+              iconColor: kCircleBackgroundColor,
+              title: profileData.company != null
+                  ? '${profileData.company!.name} ${profileData.company!.catchPhrase} ${profileData.company!.bs}'
+                  : '',
+              subtitle: COMPANY_SUBTITLE)
+        ],
       ),
     );
   }
