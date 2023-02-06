@@ -28,32 +28,37 @@ appBar(context, homeController){
 }
 
 listTileWidget(homeController) {
-  return ListView.separated(
-    itemCount: homeController.profileData.length,
+  return RefreshIndicator(
+    onRefresh: () async{
+      homeController.manageProfileData();
+    },
+    child: ListView.separated(
+      itemCount: homeController.profileData.length,
 
-    separatorBuilder: (context, index) {
-      return const SizedBox(
-        height: 10,
-      );
-    },
-    itemBuilder: (context, index) {
-      ProfileModel profileData = homeController.profileData[index];
-      return ListTile(
-        onTap: () {
-          Get.toNamed(Routes.PROFILE_DETAILS, arguments: [profileData]);
-        },
-        leading: profileImage(profileData),
-        title: Text(
-          profileData.name,
-          style: GoogleFonts.montserrat(fontWeight: FontWeight.w700),
-        ),
-        subtitle: Text(profileData.company !=null ?
-          profileData.company!.name.toString() :'',
-          style: GoogleFonts.montserrat(fontWeight: FontWeight.w400),
-        ),
-        trailing: const Icon(Icons.keyboard_arrow_right),
-      );
-    },
+      separatorBuilder: (context, index) {
+        return const SizedBox(
+          height: 10,
+        );
+      },
+      itemBuilder: (context, index) {
+        ProfileModel profileData = homeController.profileData[index];
+        return ListTile(
+          onTap: () {
+            Get.toNamed(Routes.PROFILE_DETAILS, arguments: [profileData]);
+          },
+          leading: profileImage(profileData),
+          title: Text(
+            profileData.name.toString(),
+            style: GoogleFonts.montserrat(fontWeight: FontWeight.w700),
+          ),
+          subtitle: Text(profileData.company !=null ?
+            profileData.company!.name.toString() :'',
+            style: GoogleFonts.montserrat(fontWeight: FontWeight.w400),
+          ),
+          trailing: const Icon(Icons.keyboard_arrow_right),
+        );
+      },
+    ),
   );
 }
 

@@ -7,7 +7,8 @@ const WEBSITE_SUBTITLE = 'Website';
 const PHONE_NUMBER_SUBTITLE = 'Phone Number';
 const ADDRESS_SUBTITLE = 'Address';
 const COMPANY_SUBTITLE = 'Company';
-const PROFILE_APPBAR_TITLE = 'Profile';
+const PROFILE_APPBAR_TITLE = 'Employee directory';
 
-/// hive box
+/// getStorage box
 const PROFILE_BOX = "profile_box";
+const PROFILE_KEY = "profile_key";

@@ -1,35 +1,48 @@
-import 'package:get/get.dart';
+import 'dart:convert';
 
-import '../../../Utils/Constants/text_constants.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:webandcrafts/Utils/Constants/text_constants.dart';
+import 'package:webandcrafts/Utils/Widgets/common.dart';
+
 import '../model/profile_model.dart';
 import '../provider/home_provider.dart';
-import 'package:hive/hive.dart';
 
 class HomeController extends GetxController {
   var showLoading = true;
   var profileData = [];
-  Box<ProfileModel>? profileBox;
+  late List<ProfileModel> profileResponse;
 
   @override
   void onInit() {
     super.onInit();
-    getProfile();
-    // profileBox = Hive.box<ProfileModel>(PROFILE_BOX);
-    // if(profileBox!.isEmpty){
-    //   getProfile();
-    // }else{
-    //
-    // }
+    manageProfileData();
   }
 
-  getProfile() {
+  getProfile(box) {
     HomeProvider().fetchProfileData().then((data) async {
       profileData = data;
-      // for(var i in data){
-      //   await profileBox!.put(i.id,i);
-      // }
+      box.write(PROFILE_KEY, profileModelToJson(data));
+      print('------------FROM STORAGE--------------------');
+      print(box.read(PROFILE_KEY));
+      print('--------------------------------');
+
       showLoading = false;
       update();
     });
+  }
+
+  manageProfileData() {
+    final box = GetStorage(PROFILE_BOX);
+    if (box.read(PROFILE_KEY) != null) {
+      profileResponse =
+          profileModelFromJson(json.decode(box.read(PROFILE_KEY)));
+      profileData = profileResponse;
+      showFlutterToast('data loaded from storage');
+      update();
+    } else {
+      getProfile(box);
+      showFlutterToast('data loaded from API');
+    }
   }
 }
