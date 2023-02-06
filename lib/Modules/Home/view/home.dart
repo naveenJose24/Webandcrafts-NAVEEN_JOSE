@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:webandcrafts/Modules/Home/controller/home_controller.dart';
-import 'package:webandcrafts/Modules/Home/model/profile_model.dart';
+
 
 import '../../../Utils/theme.dart';
 import 'widget/home_widgets.dart';

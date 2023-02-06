@@ -2,9 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:webandcrafts/Modules/Home/controller/home_controller.dart';
-import 'package:webandcrafts/Utils/Constants/image_constants.dart';
-import 'package:webandcrafts/Utils/Widgets/common.dart';
 
 import '../../../../Routes/pages.dart';
 import '../../../../Utils/helper.dart';
