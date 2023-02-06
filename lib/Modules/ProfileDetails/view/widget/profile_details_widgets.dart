@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../Utils/Constants/image_constants.dart';
 import '../../../../Utils/Widgets/common.dart';
+import '../../../../Utils/helper.dart';
 import '../../../../Utils/theme.dart';
 
 appBar() {
@@ -26,13 +27,25 @@ appBar() {
   );
 }
 profileImageWidget(profileData){
-  return cachedNetworkImage(
+  return profileData.profileImage !=null ?cachedNetworkImage(
       width: 165,
       height: 165,
       imageUrl: profileData.profileImage.toString(),
       borderColor: Colors.white12,
       placeholderImage: PLACEHOLDER_ICON,
-      borderWidth: 2);
+      borderWidth: 2) :
+  SizedBox(
+    height: 165,
+    width: 165,
+    child: CircleAvatar(
+      backgroundColor: kCircleBackgroundColor,
+      child: Text(
+        getInitials(profileData.name.toString()),
+        style: GoogleFonts.montserrat(
+            fontWeight: FontWeight.w700, fontSize: 30),
+      ),
+    ),
+  );
 }
 
 tileWidget({required iconData, required title, required subtitle,required iconColor}) {

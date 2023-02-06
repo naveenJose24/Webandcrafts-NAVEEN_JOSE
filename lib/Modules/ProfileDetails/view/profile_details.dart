@@ -16,22 +16,29 @@ class ProfileDetailsScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: kBoxColor,
-        body: Column(
+        body: ListView(
+          shrinkWrap: true,
           children: [
             appBar(),
             profileImageWidget(profileData),
             const SizedBox(
               height: 30,
             ),
-            Text(
-              profileData.name.toString(),
-              style: GoogleFonts.montserrat(
-                  fontSize: 30, fontWeight: FontWeight.w700, color: kFontColor),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30.0),
+              child: Text(
+                profileData.name.toString(),
+                textAlign: TextAlign.center,
+                style: GoogleFonts.montserrat(
+                    fontSize: 30, fontWeight: FontWeight.w700, color: kFontColor),
+              ),
             ),
-            Text(
-              profileData.email.toString(),
-              style: GoogleFonts.abel(
-                  fontSize: 20, fontWeight: FontWeight.w400, color: kFontColor),
+            Center(
+              child: Text(
+                profileData.email.toString(),
+                style: GoogleFonts.abel(
+                    fontSize: 20, fontWeight: FontWeight.w400, color: kFontColor),
+              ),
             ),
             const SizedBox(
               height: 10,

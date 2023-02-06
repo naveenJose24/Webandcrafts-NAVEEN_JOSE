@@ -39,7 +39,7 @@ cachedNetworkImage(
             : null,
         image: DecorationImage(
           image: imageProvider,
-          fit: BoxFit.cover,
+          fit: BoxFit.contain,
         ),
       ),
     ),
@@ -56,7 +56,7 @@ cachedNetworkImage(
               : null,
           image: DecorationImage(
             image: AssetImage(placeholderImage),
-            fit: BoxFit.cover,
+            fit: BoxFit.contain,
           ),
         ),
       ),
@@ -72,7 +72,7 @@ cachedNetworkImage(
             : null,
         image: DecorationImage(
           image: AssetImage(placeholderImage),
-          fit: BoxFit.cover,
+          fit: BoxFit.contain,
         ),
       ),
     ),
