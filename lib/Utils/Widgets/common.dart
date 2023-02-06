@@ -15,29 +15,27 @@ showFlutterToast(String message) {
       textColor: Colors.white,
       fontSize: 16.0);
 }
+
 /// cachedNetworkImage widget
 cachedNetworkImage(
     {required double width,
-      required double height,
-      required String imageUrl,
-      required double borderRadius,
-      required String placeholderImage,
-      required double borderWidth,
-      Color borderColor = kBoxColor}) {
+    required double height,
+    required String imageUrl,
+    required String placeholderImage,
+    required double borderWidth,
+    Color borderColor = kBoxColor}) {
   return CachedNetworkImage(
     width: width,
     height: height,
     imageUrl: imageUrl,
     imageBuilder: (context, imageProvider) => Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(
-          Radius.circular(borderRadius),
-        ),
+        shape: BoxShape.circle,
         border: borderWidth > 0
             ? Border.all(
-          width: borderWidth,
-          color: borderColor,
-        )
+                width: borderWidth,
+                color: borderColor,
+              )
             : null,
         image: DecorationImage(
           image: imageProvider,
@@ -49,14 +47,12 @@ cachedNetworkImage(
       opacity: 0.2,
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(
-            Radius.circular(borderRadius),
-          ),
+          shape: BoxShape.circle,
           border: borderWidth > 0
               ? Border.all(
-            width: borderWidth,
-            color: borderColor,
-          )
+                  width: borderWidth,
+                  color: borderColor,
+                )
               : null,
           image: DecorationImage(
             image: AssetImage(placeholderImage),
@@ -67,14 +63,12 @@ cachedNetworkImage(
     ),
     errorWidget: (context, url, error) => Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(
-          Radius.circular(borderRadius),
-        ),
+        shape: BoxShape.circle,
         border: borderWidth > 0
             ? Border.all(
-          width: borderWidth,
-          color: borderColor,
-        )
+                width: borderWidth,
+                color: borderColor,
+              )
             : null,
         image: DecorationImage(
           image: AssetImage(placeholderImage),

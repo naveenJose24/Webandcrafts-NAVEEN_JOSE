@@ -7,7 +7,7 @@ part './routes.dart';
 class Pages {
   static final pages = [
     GetPage(name: Routes.HOME, page: () =>  HomeScreen()),
-    GetPage(name: Routes.PROFILE_DETAILS, page: () => const ProfileDetailsScreen()),
+    GetPage(name: Routes.PROFILE_DETAILS, page: () =>  ProfileDetailsScreen()),
 
   ];
 }
