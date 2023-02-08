@@ -30,7 +30,7 @@ appBar(context, homeController){
 listTileWidget(homeController) {
   return RefreshIndicator(
     onRefresh: () async{
-      homeController.manageProfileData();
+      homeController.manageData();
     },
     child: ListView.separated(
       itemCount: homeController.profileData.length,
